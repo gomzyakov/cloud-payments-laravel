@@ -28,6 +28,11 @@ class AltPayRequestBuilderTest extends AbstractRequestBuilderTestCase
             ->setDescription('Оплата по заказу #4009')
             ->setEmail('buyer@example.com')
             ->setSuccessRedirectUrl('https://avtocod.ru/success')
+            ->setFailRedirectUrl('https://avtocod.ru/fail')
+            ->setOs('Android')
+            ->setWebview(true)
+            ->setDevice('MobileApp')
+            ->setBrowser('Chrome')
             ->setTtlMinutes(1440)
             ->setIsTest(true);
 
@@ -47,6 +52,11 @@ class AltPayRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('buyer@example.com', $payload['Email']);
         $this->assertSame(AltPayType::DigitalRubLink, $payload['AltPayType']);
         $this->assertSame('https://avtocod.ru/success', $payload['SuccessRedirectUrl']);
+        $this->assertSame('https://avtocod.ru/fail', $payload['FailRedirectUrl']);
+        $this->assertSame('Android', $payload['Os']);
+        $this->assertTrue($payload['Webview']);
+        $this->assertSame('MobileApp', $payload['Device']);
+        $this->assertSame('Chrome', $payload['Browser']);
         $this->assertSame(1440, $payload['TtlMinutes']);
         $this->assertTrue($payload['IsTest']);
     }
