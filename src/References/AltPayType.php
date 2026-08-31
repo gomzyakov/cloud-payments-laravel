@@ -12,10 +12,10 @@ interface AltPayType
     /**
      * Alternative payment type: Digital ruble via QR-code
      */
-    public const string DigitalRubImage = 'DigitalRubImage';
+    public const DigitalRubImage = 'DigitalRubImage';
 
     /**
      * Alternative payment type: Digital ruble via payment link
      */
-    public const string DigitalRubLink  = 'DigitalRubLink';
+    public const DigitalRubLink  = 'DigitalRubLink';
 }
